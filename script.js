@@ -9,7 +9,6 @@ const swiper = new Swiper('.swiper', {
     breakpoints: {
         768: {
           enabled: false,
-          slidesPerView: 100,
         },
       },
 
@@ -22,10 +21,10 @@ const swiper = new Swiper('.swiper', {
     }});
 
 
-let brends = document.querySelector(".brends"); // Псевдомассив брендов
+const brends = document.querySelector(".brends"); // Псевдомассив брендов
 
-let srcLogo = "./icons/ic-logo-comp/" // Путь для файлов логотипов компаний
-let Logos = ["Apple.png", "Samsung.png", "Acer.png", "Bosch.png", "Viewsonic.png", "Sony.png", "Acer.png"] // Имена файлов логотипов компаний
+const srcLogo = "./icons/ic-logo-comp/" // Путь для файлов логотипов компаний
+const Logos = ["Apple.png", "Samsung.png", "Acer.png", "Bosch.png", "Viewsonic.png", "Sony.png", "Acer.png"] // Имена файлов логотипов компаний
 
 // Добавляем плашки в контейнер
 for (let j = 0; j < 2; j++) {
@@ -36,31 +35,31 @@ for (let j = 0; j < 2; j++) {
 }
 
 // Кнопка "more"
-let buttonMore = document.querySelector(".button");
+const buttonMore = document.querySelector(".button");
 
     buttonMore.addEventListener('change', function (evt) {
         evt.preventDefault();
 
         buttonMore.classList.toggle("button--more");
         buttonMore.classList.toggle("button--less");
-        brends.classList.toggle("brends--height")
+        brends.classList.toggle("brends--height");
     } );
 
 // Функции
 function makeElem (logoSrc) { // Функция, создающая плашки
     
-    let brenElem = document.createElement("li");
+    const brenElem = document.createElement("li");
     brenElem.classList.add("swiper-slide");
     brenElem.classList.add("brends__item");
     brenElem.classList.add("brends__item--style");
     brenElem.classList.add("brends__item--hidden");
 
-    let brenLogo = document.createElement("img");
+    const brenLogo = document.createElement("img");
     brenLogo.classList.add("brends__logo");
     brenLogo.src = logoSrc;
     brenElem.appendChild(brenLogo);
 
-    let brenArrow = document.querySelector(".brends__arrow").cloneNode(true);
+    const brenArrow = document.querySelector(".brends__arrow").cloneNode(true);
     brenElem.appendChild(brenArrow);
 
     return brenElem;
